@@ -1,0 +1,11 @@
+{
+  "name": "baidu-offline-task",
+  "version": "1.0.0",
+  "description": "Automate offline download task addition of baidu cloud disk,provide full support of magnet,ed2k,ftp,http link ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Wu",
+  "license": "MIT"
+}
