@@ -3,7 +3,7 @@ Baidu Offline Task Automation
 
 This little script enable you to add baidu offline task easily, thanks to [PhantomJS](http://phantomjs.org/) and [Horseman](https://github.com/johntitus/node-horseman).
 
-##Usage
+## Usage
 
 Support Http/ed2k/ftp/magnet link.
 
@@ -27,11 +27,11 @@ node index.js -l 'magnet:?xt=urn:btih:F940B7E64494D3B7D36EA898D2881EC31' -l 'ftp
 ##What is Baidu Offline Task
 Baidu Cloud Disk is some thing similar to Dropbox, but come with additive wonderful feature: supply any ed2k/magnet/http link, and if that file exsits in the baidu cloud disk, it will be instantly available for you to download or view online(movie/images/pdf/excel files). But, you need to manually supply the link to the baidu cloud disk web UI, it would be no problem, if you only have a few links to supply, it becomes really annoying if you have dozens of them. So, the purpuse of this tool is to provide automative way for you to add as many links as you want.
 
-###Offline Task Screenshot
+### Offline Task Screenshot
 
 <img src="beforeadd.png" alt="" width="" height="">
 
-##Example Run
+## Example Run
 
 ```bash
 node index.js -l magnet:?xt=urn:btih:F940B7E64494A898D2881EC31
@@ -61,8 +61,10 @@ Waiting...
 All Tasks are done
 ```
 
-##DEBUG
+## DEBUG
+
 if come into problem, add debug flag before command:
+
 ```bash
 DEBUG=horseman,horseman:v,task node index.js -l '.......'
 ```
