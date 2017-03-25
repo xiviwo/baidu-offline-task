@@ -4,6 +4,7 @@ var Promise = require("bluebird");
 var _ = require('lodash');
 var MongoClient = Promise.promisifyAll(require('mongodb').MongoClient);
 var debug = require('debug')('task');
+var config = require('./config')
 var count = 0
 
 Horseman.registerAction('waitForSelectorVisible', function(selector,visible) {
@@ -107,7 +108,7 @@ horseman.on('ResourceRequested',function(requestData, networkRequest){
    
    if (requestData.url.match(regex) != null){
       debug('Aborting networkRequest....',networkRequest)
-      networkRequest.abort();
+      return
    }
 })
 
@@ -263,32 +264,13 @@ function add_single(link)
             .log(link)
             .value('input#share-offline-link',link)
             .waitForClick('a.g-button.g-button-blue:visible:not(a.blue-upload)')
-            // .click('a.g-button.g-button-blue:visible:not(a.blue-upload)')
-            // .then(function(){ return waitForMsg()  })
-            // .wait(1000)
-            // .waitFor(function waitForOneOfSelectorVisible(selector,selector2,selector3,selector4) {
-
-            //   return ( $(selector).is(':visible') || $(selector2).is(':visible') || $(selector3).is(':visible') || $(selector4).is(':visible'))
-
-            // }, 'div#offlinebtlist-dialog', 'div#newoffline-dialog','div#offlinelist-dialog','div#dialog1',true)
-            .then(function(){ 
+             .then(function(){ 
               if(link.indexOf('magnet:?xt=urn') > -1) return add_magnet() 
             })
             .then(function(){ 
               if(link.indexOf('magnet:?xt=urn') == -1) return add_general() 
             })
-            
-            // .then(function(){ return newoffline_dialog() })
-            // .then(function(status){ 
-            //   if(link.indexOf('magnet:?xt=urn') > -1)
-            //     return offlinebtlist_dialog(status) 
-            //   else
-            //     return status
-            // })
-            // .then(function(status){ return ask_vcode(status)   })
-            // .then(function(cancelNeed){ return cancel_task(cancelNeed) })
-
-                   
+                  
 }
 
 function batch_add(collection){
@@ -313,10 +295,10 @@ function login(logged){
     return horseman.clickSelector('div.account-title a')
                    .waitForSelector("input[name='userName']")
                    .screenshot('inputUsername.png')
-                   .value("input[name='userName']",'xiviwo@qq.com')
+                   .value("input[name='userName']",config.bdid)
                    .waitForSelector("input[name='password']")
                    .screenshot('inputPassword.png')
-                   .value("input[name='password']",'Hudi@thom3')
+                   .value("input[name='password']",config.bdpw)
                    .clickSelector("input[type='submit']")
                    .screenshot('login.png')
                    .waitForNextPage()
@@ -421,6 +403,11 @@ var argv = require('minimist')(process.argv.slice(2),{
 
 debug(argv)
 
+if(_.isEmpty(config.bdpw) || _.isEmpty(config.bdid))
+{
+  console.log("Baidu ID or password is empty or undefine, please edit 'config.js' to configurate that.")
+  process.exit(1)
+}
 if(argv.s){
     Promise.using(MongoConnect(), function(connection) {
 
