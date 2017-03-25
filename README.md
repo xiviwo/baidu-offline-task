@@ -24,7 +24,8 @@ Or, you can supply multiple same/different type of link at the same time,eg:
 node index.js -l 'magnet:?xt=urn:btih:F940B7E64494D3B7D36EA898D2881EC31' -l 'ftp://openssl.org/source/openssl-1.0.2k.tar.gz'
 ```
 
-##What is Baidu Offline Task
+## What is Baidu Offline Task
+
 Baidu Cloud Disk is some thing similar to Dropbox, but come with additive wonderful feature: supply any ed2k/magnet/http link, and if that file exsits in the baidu cloud disk, it will be instantly available for you to download or view online(movie/images/pdf/excel files). But, you need to manually supply the link to the baidu cloud disk web UI, it would be no problem, if you only have a few links to supply, it becomes really annoying if you have dozens of them. So, the purpuse of this tool is to provide automative way for you to add as many links as you want.
 
 ### Offline Task Screenshot
