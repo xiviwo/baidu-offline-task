@@ -8,9 +8,9 @@ This little script enable you to add baidu offline task easily, thanks to [Phant
 Support Http/ed2k/ftp/magnet link.
 
 ```bash
-node index.js -l 'ed2k://|file|Beauty.and.the.Beast.1991.%E7%BE%8E%E5%A5%B3%E4%B8%8E%E9%87%8E%E5%85%BD.%E5%8F%8C%E8%AF%AD%E5%AD%97%E5%B9%95.%E5%9B%BD%E7%B2%A4%E8%8B%B1%E4%B8%89%E9%9F%B3%E8%BD%A8.HR-HDTV.AC3.1024X576.x264.mkv|2032976058|9089ef75a17cca0f26a7fd62964c303a|h=zk5ncs4pejdysshgtahqwyraz5fkq6uj|/'
+node index.js -l 'ed2k://|file|..........|/'
 
-node index.js -l 'magnet:?xt=urn:btih:F940B7E64494D3B885FEE7D36E8A898D2881EC31'
+node index.js -l 'magnet:?xt=urn:btih:F940B7E64494DFEE6E8A898D2881EC31'
 
 node index.js -l 'http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.5p1.tar.gz'
 
@@ -21,7 +21,7 @@ node index.js -l 'ftp://openssl.org/source/openssl-1.0.2k.tar.gz'
 Or, you can supply multiple same/different type of link at the same time,eg:
 
 ```bash
-node index.js -l 'magnet:?xt=urn:btih:F940B7E64494D3B885FEE7D36E8A898D2881EC31' -l 'ftp://openssl.org/source/openssl-1.0.2k.tar.gz'
+node index.js -l 'magnet:?xt=urn:btih:F940B7E64494D3B7D36EA898D2881EC31' -l 'ftp://openssl.org/source/openssl-1.0.2k.tar.gz'
 ```
 
 ##What is Baidu Offline Task
@@ -34,7 +34,7 @@ Baidu Cloud Disk is some thing similar to Dropbox, but come with additive wonder
 ##Example Run
 
 ```bash
-node index.js -l magnet:?xt=urn:btih:F940B7E64494D3B885FEE7D36E8A898D2881EC31
+node index.js -l magnet:?xt=urn:btih:F940B7E64494A898D2881EC31
 
 百度网盘-全部文件
 成功打开主页
